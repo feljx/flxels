@@ -28,7 +28,7 @@ module.exports.styled = (tag, styles) => {
  * @param {Object} styles
  * @param {HTMLElement} el
  */
-module.exports.style = (styles, el) => addClass(cxs(styles), el)
+module.exports.style = (styles, el) => module.exports.addClass(cxs(styles), el)
 
 /**
  * Add class to given element.
