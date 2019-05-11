@@ -52,28 +52,28 @@ module.exports.addText = (txt, el) => el.appendChild(context.createTextNode(txt)
 module.exports.div = module.exports.styled.bind(undefined, 'div')
 
 /**
- * Create new styled div element.
+ * Create new styled span element.
  * @param {Object} styles
  * @returns HTMLSpanElement
  */
 module.exports.span = module.exports.styled.bind(undefined, 'span')
 
 /**
- * Create new styled div element.
+ * Create new styled h1 element.
  * @param {Object} styles
  * @returns HTMLHeadingElement
  */
 module.exports.h1 = module.exports.styled.bind(undefined, 'h1')
 
 /**
- * Create new styled div element.
+ * Create new styled h2 element.
  * @param {Object} styles
  * @returns HTMLHeadingElement
  */
 module.exports.h2 = module.exports.styled.bind(undefined, 'h2')
 
 /**
- * Create new styled div element.
+ * Create new styled p element.
  * @param {Object} styles
  * @returns HTMLParagraphElement
  */
