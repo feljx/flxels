@@ -1,27 +1,23 @@
 {
-  "name": "flxels",
-  "version": "1.0.0",
-  "description": "dom element helpers",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/flxsu/flxels.git"
-  },
-  "keywords": [
-    "dom",
-    "element",
-    "helpers"
-  ],
-  "author": "flxsu",
-  "license": "GPL-3.0-or-later",
-  "bugs": {
-    "url": "https://github.com/flxsu/flxels/issues"
-  },
-  "homepage": "https://github.com/flxsu/flxels#readme",
-  "dependencies": {
-    "cxs": "^6.2.0"
-  }
+	"name": "flxels",
+	"version": "1.0.1",
+	"description": "dom element helpers",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/flxsu/flxels.git"
+	},
+	"keywords": [ "dom", "element", "helpers" ],
+	"author": "flxsu",
+	"license": "GPL-3.0-or-later",
+	"bugs": {
+		"url": "https://github.com/flxsu/flxels/issues"
+	},
+	"homepage": "https://github.com/flxsu/flxels#readme",
+	"dependencies": {
+		"cxs": "^6.2.0"
+	}
 }
