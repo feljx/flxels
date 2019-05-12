@@ -1,15 +1,47 @@
 const cxs = require('cxs')
-let context = document
 
-module.exports._setContext = cntxt => (context = cntxt)
+/**
+ * Creates new rendering context.
+ * @param {HTMLElement} container
+ * @param {Function[]} views
+ */
+module.exports.Context = class {
+	constructor (container, views) {
+		this.container = this.c = container
+		this.state = this.s = {}
+		for (const v of views) {
+			this.render(v)
+		}
+	}
+	/**
+	 * Clear given view from state and DOM.
+	 * @param {Function} view
+	 */
+	clear (view) {
+		if (this.s[view.name]) {
+			this.s[view.name].remove()
+			this.s[view.name] = undefined
+		}
+	}
+	/**
+	 * Render given view to state and DOM.
+	 * Clear view in the process.
+	 * @param {Function} view
+	 */
+	render (view) {
+		this.clear(view)
+		const instance = view()
+		this.container.appendChild(instance)
+		this.s[view.name] = instance
+	}
+}
 
 /**
  * Create new element.
  * @param {*} tag
  * @returns HTMLElement
  */
-
-module.exports.el = tag => context.createElement(tag)
+module.exports.el = tag => document.createElement(tag)
 
 /**
  * Create new styled element.
@@ -18,7 +50,7 @@ module.exports.el = tag => context.createElement(tag)
  * @returns HTMLElement
  */
 module.exports.styled = (tag, styles) => {
-	const el = context.createElement(tag)
+	const el = document.createElement(tag)
 	el.className = cxs(styles)
 	return el
 }
@@ -42,7 +74,7 @@ module.exports.addClass = (cls, el) => (el.className += ` ${cls}`)
  * @param {String} txt
  * @param {HTMLElement} el
  */
-module.exports.addText = (txt, el) => el.appendChild(context.createTextNode(txt))
+module.exports.addText = (txt, el) => el.appendChild(document.createTextNode(txt))
 
 /**
  * Create new styled div element.
