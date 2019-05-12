@@ -36,6 +36,8 @@ module.exports.Context = class {
 	}
 }
 
+module.exports.RenderingContext = module.exports.Context
+
 /**
  * Create new element.
  * @param {*} tag
