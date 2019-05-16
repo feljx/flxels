@@ -1,10 +1,5 @@
 const cxs = require('cxs')
 
-/**
- * Creates new rendering context.
- * @param {HTMLElement} container
- * @param {Function[]} views
- */
 module.exports.Context = class {
 	constructor (container, views) {
 		this.container = this.c = container
@@ -36,7 +31,7 @@ module.exports.Context = class {
 	}
 }
 
-module.exports.RenderingContext = module.exports.Context
+module.exports.RenderingContext = Context
 
 /**
  * Create new element.
@@ -52,6 +47,7 @@ module.exports.el = tag => document.createElement(tag)
  * @returns HTMLElement
  */
 module.exports.styled = (tag, styles) => {
+	if (!styles) throw new Error('"styles" object must be defined')
 	const el = document.createElement(tag)
 	el.className = cxs(styles)
 	return el
@@ -62,7 +58,7 @@ module.exports.styled = (tag, styles) => {
  * @param {Object} styles
  * @param {HTMLElement} el
  */
-module.exports.style = (styles, el) => module.exports.addClass(cxs(styles), el)
+module.exports.style = (styles, el) => addClass(cxs(styles), el)
 
 /**
  * Add class to given element.
@@ -83,32 +79,46 @@ module.exports.addText = (txt, el) => el.appendChild(document.createTextNode(txt
  * @param {Object} styles
  * @returns HTMLDivElement
  */
-module.exports.div = module.exports.styled.bind(undefined, 'div')
+module.exports.div = styles => (styles ? styled : el)('div', styles)
 
 /**
  * Create new styled span element.
  * @param {Object} styles
  * @returns HTMLSpanElement
  */
-module.exports.span = module.exports.styled.bind(undefined, 'span')
+module.exports.span = styles => (styles ? styled : el)('span', styles)
 
 /**
  * Create new styled h1 element.
  * @param {Object} styles
  * @returns HTMLHeadingElement
  */
-module.exports.h1 = module.exports.styled.bind(undefined, 'h1')
+module.exports.h1 = styles => (styles ? styled : el)('h1', styles)
 
 /**
  * Create new styled h2 element.
  * @param {Object} styles
  * @returns HTMLHeadingElement
  */
-module.exports.h2 = module.exports.styled.bind(undefined, 'h2')
+module.exports.h2 = styles => (styles ? styled : el)('h2', styles)
 
 /**
- * Create new styled p element.
+ * Create new styled paragraph element.
  * @param {Object} styles
  * @returns HTMLParagraphElement
  */
-module.exports.p = module.exports.styled.bind(undefined, 'p')
+module.exports.p = styles => (styles ? styled : el)('p', styles)
+
+/**
+ * Create new styled input element.
+ * @param {Object} styles
+ * @returns HTMLParagraphElement
+ */
+module.exports.input = styles => (styles ? styled : el)('input', styles)
+
+/**
+ * Create new styled button element.
+ * @param {Object} styles
+ * @returns HTMLParagraphElement
+ */
+module.exports.button = styles => (styles ? styled : el)('button', styles)
