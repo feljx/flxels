@@ -31,7 +31,7 @@ module.exports.Context = class {
 	}
 }
 
-module.exports.RenderingContext = Context
+module.exports.RenderingContext = module.exports.Context
 
 /**
  * Create new element.
@@ -54,18 +54,18 @@ module.exports.styled = (tag, styles) => {
 }
 
 /**
- * Add styles to given element.
- * @param {Object} styles
- * @param {HTMLElement} el
- */
-module.exports.style = (styles, el) => addClass(cxs(styles), el)
-
-/**
  * Add class to given element.
  * @param {String} cls
  * @param {HTMLElement} el
  */
 module.exports.addClass = (cls, el) => (el.className += ` ${cls}`)
+
+/**
+ * Add styles to given element.
+ * @param {Object} styles
+ * @param {HTMLElement} el
+ */
+module.exports.style = (styles, el) => addClass(cxs(styles), el)
 
 /**
  * Add text node to given element.
