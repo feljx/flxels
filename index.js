@@ -1,6 +1,6 @@
 const cxs = require('cxs')
 
-module.exports.Context = class {
+const Context = class {
 	constructor (container, views) {
 		this.container = this.c = container
 		this.state = this.s = {}
@@ -30,15 +30,16 @@ module.exports.Context = class {
 		this.s[view.name] = instance
 	}
 }
-
-module.exports.RenderingContext = module.exports.Context
+module.exports.Context = Context
+module.exports.RenderingContext = Context
 
 /**
  * Create new element.
  * @param {*} tag
  * @returns HTMLElement
  */
-module.exports.el = tag => document.createElement(tag)
+const el = tag => document.createElement(tag)
+module.exports.el = el
 
 /**
  * Create new styled element.
@@ -46,79 +47,90 @@ module.exports.el = tag => document.createElement(tag)
  * @param {Object} styles
  * @returns HTMLElement
  */
-module.exports.styled = (tag, styles) => {
+const styled = (tag, styles) => {
 	if (!styles) throw new Error('"styles" object must be defined')
 	const el = document.createElement(tag)
 	el.className = cxs(styles)
 	return el
 }
+module.exports.styled = styled
 
 /**
  * Add class to given element.
  * @param {String} cls
  * @param {HTMLElement} el
  */
-module.exports.addClass = (cls, el) => (el.className += ` ${cls}`)
+const addClass = (cls, el) => (el.className += ` ${cls}`)
+module.exports.addClass = addClass
 
 /**
  * Add styles to given element.
  * @param {Object} styles
  * @param {HTMLElement} el
  */
-module.exports.style = (styles, el) => addClass(cxs(styles), el)
+const style = (styles, el) => module.exports.addClass(cxs(styles), el)
+module.exports.style = style
 
 /**
  * Add text node to given element.
  * @param {String} txt
  * @param {HTMLElement} el
  */
-module.exports.addText = (txt, el) => el.appendChild(document.createTextNode(txt))
+const addText = (txt, el) => el.appendChild(document.createTextNode(txt))
+module.exports.addText = addText
 
 /**
  * Create new styled div element.
  * @param {Object} styles
  * @returns HTMLDivElement
  */
-module.exports.div = styles => (styles ? styled : el)('div', styles)
+const div = styles => (styles ? styled : el)('div', styles)
+module.exports.div = div
 
 /**
  * Create new styled span element.
  * @param {Object} styles
  * @returns HTMLSpanElement
  */
-module.exports.span = styles => (styles ? styled : el)('span', styles)
+const span = styles => (styles ? styled : el)('span', styles)
+module.exports.span = span
 
 /**
  * Create new styled h1 element.
  * @param {Object} styles
  * @returns HTMLHeadingElement
  */
-module.exports.h1 = styles => (styles ? styled : el)('h1', styles)
+const h1 = styles => (styles ? styled : el)('h1', styles)
+module.exports.h1 = h1
 
 /**
  * Create new styled h2 element.
  * @param {Object} styles
  * @returns HTMLHeadingElement
  */
-module.exports.h2 = styles => (styles ? styled : el)('h2', styles)
+const h2 = styles => (styles ? styled : el)('h2', styles)
+module.exports.h2 = h2
 
 /**
  * Create new styled paragraph element.
  * @param {Object} styles
  * @returns HTMLParagraphElement
  */
-module.exports.p = styles => (styles ? styled : el)('p', styles)
+const p = styles => (styles ? styled : el)('p', styles)
+module.exports.p = p
 
 /**
  * Create new styled input element.
  * @param {Object} styles
  * @returns HTMLParagraphElement
  */
-module.exports.input = styles => (styles ? styled : el)('input', styles)
+const input = styles => (styles ? styled : el)('input', styles)
+module.exports.input = input
 
 /**
  * Create new styled button element.
  * @param {Object} styles
  * @returns HTMLParagraphElement
  */
-module.exports.button = styles => (styles ? styled : el)('button', styles)
+const button = styles => (styles ? styled : el)('button', styles)
+module.exports.button = button
