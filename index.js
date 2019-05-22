@@ -3,16 +3,22 @@ const cxs = require('cxs')
 const Context = class {
 	constructor (container, views) {
 		this.container = this.c = container
+		this.children = views
 		this.state = this.s = {}
-		for (const v of views) {
-			this.render(v)
+	}
+
+	render () {
+		for (const view of this.children) {
+			this.clearView(view)
+			this.renderView(view)
 		}
 	}
+
 	/**
 	 * Clear given view from state and DOM.
 	 * @param {Function} view
 	 */
-	clear (view) {
+	clearView (view) {
 		if (this.s[view.name]) {
 			this.s[view.name].remove()
 			this.s[view.name] = undefined
@@ -23,8 +29,8 @@ const Context = class {
 	 * Clear view in the process.
 	 * @param {Function} view
 	 */
-	render (view) {
-		this.clear(view)
+	renderView (view) {
+		this.clearView(view)
 		const instance = view()
 		this.container.appendChild(instance)
 		this.s[view.name] = instance
