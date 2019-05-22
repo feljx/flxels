@@ -7,6 +7,10 @@ const Context = class {
 		this.state = this.s = {}
 	}
 
+	clear () {
+		for (const view of this.children) this.clearView(view)
+	}
+
 	render () {
 		for (const view of this.children) {
 			this.clearView(view)
