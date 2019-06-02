@@ -78,8 +78,20 @@ module.exports.addClass = addClass
  * @param {Object} styles
  * @param {HTMLElement} el
  */
-const style = (styles, el) => module.exports.addClass(cxs(styles), el)
+const style = (styles, el) => {
+	el.className += cxs(styles)
+}
 module.exports.style = style
+
+/**
+ * Remove and add new styles to given element.
+ * @param {Object} styles
+ * @param {HTMLElement} el
+ */
+const restyle = (styles, el) => {
+	el.className = cxs(styles)
+}
+module.exports.restyle = restyle
 
 /**
  * Add text node to given element.
