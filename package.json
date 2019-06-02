@@ -1,6 +1,6 @@
 {
 	"name": "flxels",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"description": "dom element helpers",
 	"main": "index.js",
 	"scripts": {

@@ -45,7 +45,7 @@ module.exports.RenderingContext = Context
 
 /**
  * Create new element.
- * @param {*} tag
+ * @param {String} tag
  * @returns HTMLElement
  */
 const el = tag => document.createElement(tag)
