@@ -1,6 +1,6 @@
 declare module 'flxels' {
 	type view = () => HTMLElement
-	declare class Context {
+	class Context {
 		constructor (container: HTMLElement, views: view[])
 		container: HTMLElement
 		children: view[]
@@ -12,23 +12,23 @@ declare module 'flxels' {
 	type RenderingContext = Context
 	type StylesObject = { [key: string]: string | StylesObject }
 
-	declare function el (tag: string): HTMLElement
+	function el (tag: string): HTMLElement
 
-	declare function styled (tag: string, styles: StylesObject): HTMLElement
+	function styled (tag: string, styles: StylesObject): HTMLElement
 
-	declare function addClass (className: string, element: HTMLElement): void
+	function addClass (className: string, element: HTMLElement): void
 
-	declare function style (styles: StylesObject, element: HTMLElement): void
+	function style (styles: StylesObject, element: HTMLElement): void
 
-	declare function restyle (styles: StylesObject, element: HTMLElement): void
+	function restyle (styles: StylesObject, element: HTMLElement): void
 
-	declare function addText (text: string, element: HTMLElement): void
+	function addText (text: string, element: HTMLElement): void
 
-	declare function div (styles: StylesObject): HTMLDivElement
-	declare function span (styles: StylesObject): HTMLSpanElement
-	declare function h1 (styles: StylesObject): HTMLHeadingElement
-	declare function h2 (styles: StylesObject): HTMLHeadingElement
-	declare function p (styles: StylesObject): HTMLParagraphElement
-	declare function input (styles: StylesObject): HTMLInputElement
-	declare function button (styles: StylesObject): HTMLButtonElement
+	function div (styles: StylesObject): HTMLDivElement
+	function span (styles: StylesObject): HTMLSpanElement
+	function h1 (styles: StylesObject): HTMLHeadingElement
+	function h2 (styles: StylesObject): HTMLHeadingElement
+	function p (styles: StylesObject): HTMLParagraphElement
+	function input (styles: StylesObject): HTMLInputElement
+	function button (styles: StylesObject): HTMLButtonElement
 }
