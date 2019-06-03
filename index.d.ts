@@ -12,18 +12,17 @@ declare module 'flxels' {
 	type RenderingContext = Context
 	type StylesObject = { [key: string]: string | StylesObject }
 
+	function add_class (element: HTMLElement, className: string): void
+	function remove_class (element: HTMLElement, className: string): void
+
+	function style (element: HTMLElement, styles: StylesObject): void
+	function restyle (element: HTMLElement, styles: StylesObject): void
+
+	function add_text (element: HTMLElement, text: string): void
+	function remove_text (element: HTMLElement, textNode?: Text): void
+
 	function el (tag: string): HTMLElement
-
 	function styled (tag: string, styles: StylesObject): HTMLElement
-
-	function addClass (className: string, element: HTMLElement): void
-
-	function style (styles: StylesObject, element: HTMLElement): void
-
-	function restyle (styles: StylesObject, element: HTMLElement): void
-
-	function addText (text: string, element: HTMLElement): void
-	function removeText (textNode: Text, element: HTMLElement): void
 
 	function div (styles?: StylesObject): HTMLDivElement
 	function span (styles?: StylesObject): HTMLSpanElement

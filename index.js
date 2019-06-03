@@ -67,50 +67,68 @@ module.exports.styled = styled
 
 /**
  * Add class to given element.
- * @param {String} cls
  * @param {HTMLElement} el
+ * @param {String} cls
  */
-const addClass = (cls, el) => (el.className += ` ${cls}`)
-module.exports.addClass = addClass
+const add_class = (el, cls) => (el.className += ` ${cls}`)
+module.exports.add_class = add_class
+
+/**
+ * Remove class from given element.
+ * Only works for single class names.
+ * @param {HTMLElement} el
+ * @param {String} cls
+ */
+const remove_class = (el, cls) => (el.className = el.className.replace(cls, ''))
+module.exports.remove_class = remove_class
 
 /**
  * Add styles to given element.
- * @param {Object} styles
  * @param {HTMLElement} el
+ * @param {Object} styles
  */
-const style = (styles, el) => {
-	el.className += cxs(styles)
+const style = (el, styles) => {
+	if (el.className === '') el.className += cxs(styles)
+	else el.className += ' ' + cxs(styles)
 }
 module.exports.style = style
 
 /**
  * Remove and add new styles to given element.
- * @param {Object} styles
  * @param {HTMLElement} el
+ * @param {Object} styles
  */
-const restyle = (styles, el) => {
+const restyle = (el, styles) => {
 	el.className = cxs(styles)
 }
 module.exports.restyle = restyle
 
 /**
  * Add text node to given element.
- * @param {String} txt
  * @param {HTMLElement} el
+ * @param {String} txt
  */
-const addText = (txt, el) => el.appendChild(document.createTextNode(txt))
-module.exports.addText = addText
+const add_text = (el, txt) => el.appendChild(document.createTextNode(txt))
+module.exports.add_text = add_text
 
 /**
  * Remove text node or all text nodes from given element.
- * @param {Text} txtNode
  * @param {HTMLElement} el
+ * @param {Text} txtNode
  */
-const removeText = (txtNode, el) => {
-	if (txtNode) el.removeChild(txtNode)
-	else el.textContent = undefined
+const remove_text = (el, txt) => {
+	if (!el) return
+	if (typeof txt === 'string') {
+		el.textContent = el.textContent.replace(txt, '')
+	}
+	else if (txt && txt.nodeType === 3) {
+		el.removeChild(txt)
+	}
+	else {
+		el.textContent = undefined
+	}
 }
-module.exports.removeText = removeText
+module.exports.remove_text = remove_text
 
 /**
  * Create new styled div element.

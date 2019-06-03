@@ -1,10 +1,10 @@
 {
 	"name": "flxels",
-	"version": "0.1.13",
+	"version": "0.2.0",
 	"description": "dom element helpers",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "ava"
 	},
 	"repository": {
 		"type": "git",
@@ -19,5 +19,13 @@
 	"homepage": "https://github.com/flxsu/flxels#readme",
 	"dependencies": {
 		"cxs": "^6.2.0"
+	},
+	"devDependencies": {
+		"ava": "^2.0.0",
+		"jsdom": "^15.1.1"
+	},
+	"ava": {
+		"files": [ "./tests/*.js" ],
+		"require": [ "./tests/_setup.js" ]
 	}
 }
