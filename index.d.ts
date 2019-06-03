@@ -24,11 +24,11 @@ declare module 'flxels' {
 
 	function addText (text: string, element: HTMLElement): void
 
-	function div (styles: StylesObject): HTMLDivElement
-	function span (styles: StylesObject): HTMLSpanElement
-	function h1 (styles: StylesObject): HTMLHeadingElement
-	function h2 (styles: StylesObject): HTMLHeadingElement
-	function p (styles: StylesObject): HTMLParagraphElement
-	function input (styles: StylesObject): HTMLInputElement
-	function button (styles: StylesObject): HTMLButtonElement
+	function div (styles?: StylesObject): HTMLDivElement
+	function span (styles?: StylesObject): HTMLSpanElement
+	function h1 (styles?: StylesObject): HTMLHeadingElement
+	function h2 (styles?: StylesObject): HTMLHeadingElement
+	function p (styles?: StylesObject): HTMLParagraphElement
+	function input (styles?: StylesObject): HTMLInputElement
+	function button (styles?: StylesObject): HTMLButtonElement
 }
