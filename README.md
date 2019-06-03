@@ -1,69 +1,60 @@
 # flxels
-A collection of DOM / element helpers.
+Create HTML elements in JavaScript.
+TypeScript type definitions included.
 
-### Typescript declaration
-```typescript
-type view = () => HTMLElement
-```
-```typescript
-class Context {
-	constructor (container: HTMLElement, views: view[])
-	container: HTMLElement
-	children: view[]
-	clear (): void
-	render (): void
-	clearView (view): void
-	renderView (view): void
-}
-```
-```typescript
-type RenderingContext = Context
-```
-```typescript
-type StylesObject = { [key: string]: string | StylesObject }
-```
-```typescript
-function add_class (element: HTMLElement, className: string): void
-```
-```typescript
-function remove_class (element: HTMLElement, className: string): void
-```
-```typescript
-function style (element: HTMLElement, styles: StylesObject): void
-```
-```typescript
-function restyle (element: HTMLElement, styles: StylesObject): void
-```
-```typescript
-function add_text (element: HTMLElement, text: string): void
-```
-```typescript
-function remove_text (element: HTMLElement, textNode?: Text): void
-```
+## API
+
+##### Create element specified by tag.
 ```typescript
 function el (tag: string): HTMLElement
 ```
+
+##### Create styled element specified by tag and styles object.
+```typescript
+type StylesObject = { [key: string]: string | StylesObject }
+```
+
 ```typescript
 function styled (tag: string, styles: StylesObject): HTMLElement
 ```
+
+##### Create styled or unstyled h1 element.
+##### Styles object is optional.
 ```typescript
-function div (styles?: StylesObject): HTMLDivElement
+function h1 (styles?: StylesObject): HTMLDivElement
 ```
+`div` `span` `h1` `h2` `p` `input` `button`
+
+##### Add class to specified element.
 ```typescript
-function span (styles?: StylesObject): HTMLSpanElement
+function add_class (element: HTMLElement, className: string): void
 ```
+
+##### Remove class from specified element.
 ```typescript
-function h1 (styles?: StylesObject): HTMLHeadingElement
+function remove_class (element: HTMLElement, className: string): void
 ```
+
+##### Style specified element.
+##### Adds a new css class on each call.
 ```typescript
-function h2 (styles?: StylesObject): HTMLHeadingElement
+function style (element: HTMLElement, styles: StylesObject): void
 ```
+
+##### Restyle specified element.
+##### Assigns new css class.
 ```typescript
-function p (styles?: StylesObject): HTMLParagraphElement
+function restyle (element: HTMLElement, styles: StylesObject): void
 ```
+
+##### Add text node to specified element.
 ```typescript
-function input (styles?: StylesObject): HTMLInputElement
+function add_text (element: HTMLElement, text: string): void
 ```
+
+##### Remove text node from specified element.
+##### If string passed instead of text node, removes string from textContent.
+##### If no text arg passed, removes all text nodes.
 ```typescript
-function button (styles?: StylesObject): HTMLButtonElement
+function remove_text (element: HTMLElement, textNode?: Text): void
 ```
