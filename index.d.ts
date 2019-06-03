@@ -23,6 +23,7 @@ declare module 'flxels' {
 	function restyle (styles: StylesObject, element: HTMLElement): void
 
 	function addText (text: string, element: HTMLElement): void
+	function removeText (textNode: Text, element: HTMLElement): void
 
 	function div (styles?: StylesObject): HTMLDivElement
 	function span (styles?: StylesObject): HTMLSpanElement

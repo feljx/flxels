@@ -102,6 +102,17 @@ const addText = (txt, el) => el.appendChild(document.createTextNode(txt))
 module.exports.addText = addText
 
 /**
+ * Remove text node or all text nodes from given element.
+ * @param {Text} txtNode
+ * @param {HTMLElement} el
+ */
+const removeText = (txtNode, el) => {
+	if (txtNode) el.removeChild(txtNode)
+	else el.textContent = undefined
+}
+module.exports.removeText = removeText
+
+/**
  * Create new styled div element.
  * @param {Object} styles
  * @returns HTMLDivElement
