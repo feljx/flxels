@@ -1,6 +1,6 @@
 # flxels
 Helper functions to create HTML elements
-Javascript / Typescript
+in Javascript / Typescript
 
 ## API
 
