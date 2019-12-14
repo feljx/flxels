@@ -1,6 +1,6 @@
 # flxels
-Create HTML elements in JavaScript.
-TypeScript type definitions included.
+Helper functions to create HTML elements
+Javascript / Typescript
 
 ## API
 
