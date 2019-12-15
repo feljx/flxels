@@ -11,7 +11,11 @@
 		"type": "git",
 		"url": "git+https://github.com/flxsu/flxels.git"
 	},
-	"keywords": [ "dom", "element", "helpers" ],
+	"keywords": [
+		"dom",
+		"element",
+		"helpers"
+	],
 	"author": "flxsu",
 	"license": "GPL-3.0-or-later",
 	"bugs": {
@@ -22,11 +26,15 @@
 		"cxs": "^6.2.0"
 	},
 	"devDependencies": {
-		"ava": "^2.0.0",
-		"jsdom": "^15.1.1"
+		"ava": "^2.4.0",
+		"jsdom": "^15.2.1"
 	},
 	"ava": {
-		"files": [ "./tests/*.js" ],
-		"require": [ "./tests/_setup.js" ]
+		"files": [
+			"./tests/*.js"
+		],
+		"require": [
+			"./tests/_setup.js"
+		]
 	}
 }
